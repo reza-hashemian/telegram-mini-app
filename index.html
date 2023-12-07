@@ -20,14 +20,13 @@
         document.body.style.background = color.hexString;
     });
 
-    Telegram.WebApp.ready();
-    Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
-        const data = Telegram.WebApp.initData;
+    window.Telegram.WebApp.ready();
+    window.Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
+        const data = `${JSON.stringify(window.Telegram.WebApp.initData)}`;
  
-        const pieces = data.split(/&/);
-        for (const piece of pieces) {
-            Telegram.WebApp.sendData(piece);
-        }
+
+        Telegram.WebApp.sendData(data);
+
         Telegram.WebApp.close();
     });
 </script>
@@ -38,7 +37,7 @@
          style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%"></div>
 </div>
 </body>
-<!-- 
+
 <p id="p1">Hello World!</p>
 
 
@@ -53,10 +52,10 @@ const str = "AAEdDu0kAAAAAB0O7SRk5nc5&user=%7B%22id%3A619515421%2C%22first_name%
 //   return acc;
 // }, {});
 
-document.getElementById("p1").innerHTML = str;
+document.getElementById("p1").innerHTML = window.Telegram.WebAppUser;
 
 
-</script> -->
+</script>
 <script type="text/javascript">
     const i = window.Telegram.WebApp;
     Telegram.WebApp.expand();
