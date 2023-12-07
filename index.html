@@ -11,20 +11,23 @@
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
 </head>
 
+<script type="text/javascript">
+
+
+    Telegram.WebApp.ready();
+    Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
+        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: Telegram.WebAppInitData.user});
+        Telegram.WebApp.sendData(data);
+        Telegram.WebApp.close();
+    });
+</script>
+
+
+
 <body style="background-color: #ffffff">
     <p id="myParagraph">یبسیبسیب</p>
 
-    <script>
-    const onWebAppData = (event) => {
-      const webappUser = event.data.webappUser;
 
-    };
-
-    window.addEventListener("WebAppData", onWebAppData);
-      const myVariable = "Hello, world!";
-    
-      document.getElementById("myParagraph").innerHTML = `User ID: ${webappUser.id}`;
-    </script>
 </body>
 <!-- <p>ldsfkjlakjfdkajdlfkjsadfkljsdflksajfdlkjsd;kfjlsdkjflksdjfjdkflksjldf</p> -->
 <script type="text/javascript">
