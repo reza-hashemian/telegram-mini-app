@@ -16,7 +16,7 @@
 
     Telegram.WebApp.ready();
     Telegram.WebApp.MainButton.setText('Chookj;kjlkjse Color').show().onClick(function () {
-        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: WebAppInitData.user});
+        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: WebAppInitData.user.id});
         Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
     });
