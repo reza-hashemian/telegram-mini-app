@@ -23,7 +23,11 @@
     Telegram.WebApp.ready();
     Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
         const data = Telegram.WebApp.initData;
-        Telegram.WebApp.sendData(data);
+ 
+        const pieces = data.split(/&/);
+        for (const piece of pieces) {
+            Telegram.WebApp.sendData(piece);
+        }
         Telegram.WebApp.close();
     });
 </script>
@@ -34,11 +38,25 @@
          style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%"></div>
 </div>
 </body>
-<!-- <p id="p1">Hello World!</p>
+
+<p id="p1">Hello World!</p>
+
+
+
 
 <script>
-document.getElementById("p1").innerHTML = Telegram.WebApp.initData;
-</script> -->
+const str = "AAEdDu0kAAAAAB0O7SRk5nc5&user=%7B%22id%3A619515421%2C%22first_name%3A%22Reza%22%2C%22last_name%3A%22%22%2C%22username%3A%22hash_developer%22%2C%22language_code%3A%22en%22%2C%22allows_write_to_pm%3Atrue%7D&auth_date=1701976108&hash=81132fec6db250af3776b6b717c6fd45c09f3a83047ee9d500261268fdcd297c";
+const obj = JSON.parse(str);
+
+// const dict = Object.keys(obj).reduce((acc, key) => {
+//   acc[key] = obj[key];
+//   return acc;
+// }, {});
+
+document.getElementById("p1").innerHTML = str;
+
+
+</script>
 <script type="text/javascript">
     const i = window.Telegram.WebApp;
     Telegram.WebApp.expand();
