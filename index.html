@@ -11,7 +11,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
 </head>
 <script type="text/javascript">
-    const ff = Telegram.WebApp;
     const colorPicker = new iro.ColorPicker('#picker', {
         borderColor: "#ffffff",
         borderWidth: 1,
@@ -23,7 +22,7 @@
 
     Telegram.WebApp.ready();
     Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
-        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: Telegram.WebApp.initDataUnsafe.user.id});
+        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: Telegram.WebApp.platform});
         Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
     });
@@ -36,6 +35,7 @@
 </div>
 </body>
 <script type="text/javascript">
+    const i = window.Telegram.WebApp;
     Telegram.WebApp.expand();
 </script>
 </html>
