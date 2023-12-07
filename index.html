@@ -14,7 +14,7 @@
     const userId = window.telegram.auth.userId;
     alert(userId);
 
-    
+
     const colorPicker = new iro.ColorPicker('#picker', {
         borderColor: "#ffffff",
         borderWidth: 1,
@@ -26,7 +26,7 @@
 
     Telegram.WebApp.ready();
     Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
-        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: colorPicker.color.rgb});
+        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: userId});
         Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
     });
