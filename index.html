@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
 </head>
 <script type="text/javascript">
-    
+
   const onWebAppData = (event) => {
     const webappUser = event.data.webappUser;
     alert(`User ID: ${webappUser.id}`);
@@ -33,7 +33,7 @@
 
     Telegram.WebApp.ready();
     Telegram.WebApp.MainButton.setText('Choose Color').show().onClick(function () {
-        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: userId});
+        const data = JSON.stringify({hex: colorPicker.color.hexString, rgb: webappUser.username});
         Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
     });
